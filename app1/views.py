@@ -6,16 +6,12 @@ def say_hello(request):
     return HttpResponse("Hello Django")
 
 def say_hi(request):
-    return render(request, 'hi.html', {'name': 'Jeorge Bryan V. Domingo'})
+    return render(request, 'hi.html', {'name': 'Janine Kaye B. Mariano'})
 
 def blog_list(request):
-    posts = Post.objects.all()  # Retrieve all Post objects
-    context = {
-        'blog_list': posts  # Pass the posts to the template
-    }
-    return render(request, 'blog_list.html', context)
+    posts = Post.objects.all()  # Fetch all posts from the database
+    return render(request, 'blog_list.html', {'posts': posts})
 
 def blog_detail(request, id):
-    post = get_object_or_404(Post, id=id)  # Fetch the post by id
-    context = {'post': post}
-    return render(request, 'app1/blog_detail.html', context)
+    post = get_object_or_404(Post, id=id)  # Get the post by its ID
+    return render(request, 'blog_detail.html', {'post': post})

@@ -1,7 +1,13 @@
+<!-- blog_list.html -->
 <h1> My Blog List </h1>
 
 <ul>
-    {% for list in blog_list %}
-        <li> {{list}} </li>
-        {% endfor %}
+    {% if posts %} {% for post in posts %}
+    <li>
+        <!-- Hyperlink to the blog detail page for each post -->
+        <a href="{% url 'blog_detail' post.id %}">{{ post.title }}</a>
+    </li>
+    {% endfor %} {% else %}
+    <p>No posts available.</p>
+    {% endif %}
 </ul>
