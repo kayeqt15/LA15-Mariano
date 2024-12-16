@@ -6,7 +6,7 @@ def say_hello(request):
     return HttpResponse("Hello Django")
 
 def say_hi(request):
-    return render(request, 'hi.html', {'name': 'Janine Kaye B. Mariano'})
+    return render(request, 'hi.html', {'name': 'King Mark R. Yu'})
 
 def blog_list(request):
     posts = Post.objects.all()  # Fetch all posts from the database
